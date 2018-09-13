@@ -291,8 +291,6 @@ export default {
   width: 58px;
   height: 80px;
   background: url(http://s1.700static.com/store/v2.0/css/img/iconMerge_669a29d.png) 0 21px no-repeat;
-  /* background-size: 400px 400px; */
-  /* background-position: -212px -164px; */
   margin-right: 80px;
 }
 
@@ -359,7 +357,6 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  /* text-align: center; */
 }
 
 .aside_div img {
@@ -370,7 +367,6 @@ export default {
 .aside_div > div > a {
   display: block;
   font-size: 14px;
-  /* width: 275px; */
   text-align: center;
   font-size: 14px;
   color: #666;
