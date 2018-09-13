@@ -11,7 +11,7 @@
           </a>
         </div>
         <div class="top_right">
-          <a href="" style="position:relative" @mouseenter='myMouseover2' @mouseleave='myMouseleave2'><i class="iconfont icon-shouji"></i>下载APP
+          <a href="#/download" style="position:relative" @mouseenter='myMouseover2' @mouseleave='myMouseleave2'><i class="iconfont icon-shouji"></i>下载APP
             <div class="wechat2"></div></a>
           <a href="">关于我们</a>
         </div>
@@ -396,7 +396,7 @@
 
     <!-- 浮游窗 -->
     <div class="floating">
-      <a href="" class="bgs1"></a>
+      <a href="javascript:;" @click='top' class="bgs1"></a>
       <a href="" class="bgs2"></a>
       <a href="" class="bgs3"></a>
       <a href="" class="bgs4"></a>
@@ -694,30 +694,28 @@
 
       // 浮游窗
 
-      function(){
-        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
-        $(function () {
-            $(window).scroll(function(){
-                if ($(window).scrollTop()>100){
-                    $("#toTop").fadeIn(1500);
-                }
-                else
-                {
-                    $("#toTop").fadeOut(1500);
-                }
-            });
-            //当点击跳转链接后，回到页面顶部位置
-            $("#toTop").click(function(){
-                $('body,html').animate({scrollTop:0},1000);
-                return false;
-            });
-        });
-    }
+      handleScroll(){
+        // alert('-----')
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        console.log(scroll);
+        
+          if (scroll>100){
+              $(".floating").fadeIn(500);
+          }
+          else
+          {
+              $(".floating").fadeOut(500);
+          }
+       
+      },
+      top(){
+        $('body,html').animate({scrollTop:0},1000)
+      }
 
 
     },
     mounted(){
-
+      window.addEventListener('scroll', this.handleScroll)
     }
   };
 </script>
@@ -1307,6 +1305,10 @@
     top: -68px;
     position: absolute;
     width: 102px;
+    display: none;
+  }
+
+  .floating{
     display: none;
   }
 
